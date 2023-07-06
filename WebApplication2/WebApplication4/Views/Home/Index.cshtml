@@ -1,0 +1,230 @@
+﻿@model WebApplication4.Models.person
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-lg-2">
+            @Html.LabelFor(m => m.FirstName)
+        </div>
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.FirstName, new{@class="form-control"})
+            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "error" })
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-lg-2">
+            @Html.LabelFor(m => m.LastName)
+        </div>
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.LastName, new{@class="form-control"})
+            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "error" })
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-lg-2">
+            @Html.Label("Date of Birth")
+        </div>
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m=>m.Date)
+            @Html.TextBoxFor(m=>m.month)
+            @Html.TextBoxFor(m=>m.year)
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-lg-2">
+            @Html.LabelFor(m => m.Email)
+        </div>
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.Email, new{@class="form-control"})
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-lg-2">
+            @Html.LabelFor(m => m.MobileNumber)
+        </div>
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.MobileNumber, new{@class="form-control"})
+            @Html.ValidationMessageFor(m => m.MobileNumber, "", new { @class = "error" })
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-lg-2">
+            @Html.LabelFor(m => m.Gender)
+        </div>
+        <div class="col-lg-8">
+            @Html.RadioButtonFor(m => m.Gender,"Male") Male
+            @Html.RadioButtonFor(m => m.Gender,"Female") Female
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-lg-2">
+            @Html.LabelFor(m => m.Address)
+        </div>
+        <div class="col-lg-8">
+            @Html.TextAreaFor(m => m.Address,new{@class="form-control"})
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-lg-2">
+            @Html.LabelFor(m => m.City)
+        </div>
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.City, new{@class="form-control"})
+            @Html.ValidationMessageFor(m => m.City, "", new { @class = "error" })
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-lg-2">
+            @Html.LabelFor(m => m.pincode)
+        </div>
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.pincode,new{@class="form-control"})
+            @Html.ValidationMessageFor(m => m.pincode, "", new { @class = "error" })
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-lg-2">
+            @Html.LabelFor(m => m.state)
+        </div>
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.state, new{@class="form-control"})
+            @Html.ValidationMessageFor(m => m.state, "", new { @class = "error" })
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-lg-2">
+            @Html.LabelFor(m => m.coun)
+        </div>
+        <div class="col-lg-8">
+            @Html.TextBoxFor(m => m.coun, new{@class="form-control"})
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-lg-2">
+            @Html.LabelFor(m => m.Hobb)
+        </div>
+        <div class="col-lg-8">
+            <input type="checkbox" name="Hobb" value="Coding" /> Coding
+            <input type="checkbox" name="Hobb" value="Swimming" /> Swimming
+            <input type="checkbox" name="Hobb" value="Football" /> Football
+            <input type="checkbox" name="Hobb" value="Gaming" /> Gaming
+            <input type="checkbox" name="Hobb" id="Others" /> Others
+            @Html.TextBox("OthersHobby", "", new { @class = "form-control", @style = "display:none;" })
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-lg-2">
+            <label>Qualification</label>
+        </div>
+        <div class="col-lg-8">
+            <table border="1">
+                <tr border="1">
+                    <th>S1.NO</th>
+                    <th>Exmination</th>
+                    <th>Board</th>
+                    <th>Percentage</th>
+                    <th>Year of Passing</th>
+                </tr>
+                <tr border="1">
+                    <td>1</td>
+                    <td> Class X </td>
+                    <td>@Html.TextBoxFor(m => m.classXB, new{@class="form-control"})</td>
+                    @Html.ValidationMessageFor(m => m.classXB, "", new { @class = "error" })
+                    <td>@Html.TextBoxFor(m => m.classXP, new{@class="form-control"})</td>
+                    @Html.ValidationMessageFor(m => m.classXP, "", new { @class = "error" })
+                    <td>@Html.TextBoxFor(m => m.classXY, new{@class="form-control"})</td>
+
+                </tr>
+                <tr border="1">
+                    <td>2</td>
+                    <td>Class XII</td>
+                    <td>@Html.TextBoxFor(m => m.classXIIB, new{@class="form-control"})</td>
+                    @Html.ValidationMessageFor(m => m.classXIIB, "", new { @class = "error" })
+
+                    <td>@Html.TextBoxFor(m => m.classXIIP, new{@class="form-control"})</td>
+                    @Html.ValidationMessageFor(m => m.classXIIP, "", new { @class = "error" })
+
+                    <td>@Html.TextBoxFor(m => m.classXIIY, new{@class="form-control"})</td>
+
+                </tr>
+                <tr border="1">
+                    <td>3</td>
+                    <td>Gradution</td>
+                    <td>@Html.TextBoxFor(m => m.GraduationB, new{@class="form-control"})</td>
+                    @Html.ValidationMessageFor(m => m.GraduationB, "", new { @class = "error" })
+
+                    <td>@Html.TextBoxFor(m => m.GraduationP, new{@class="form-control"})</td>
+                    @Html.ValidationMessageFor(m => m.GraduationP, "", new { @class = "error" })
+
+                    <td>@Html.TextBoxFor(m => m.GraduationY, new{@class="form-control"})</td>
+
+                </tr>
+                <tr border="1">
+                    <td border="1">4</td>
+                    <td border="1">Masters</td>
+                    <td>@Html.TextBoxFor(m => m.MastersB, new{@class="form-control"})</td>
+                    @Html.ValidationMessageFor(m => m.MastersB, "", new { @class = "error" })
+
+                    <td>@Html.TextBoxFor(m => m.MastersP, new{@class="form-control"})</td>
+                    @Html.ValidationMessageFor(m => m.MastersP, "", new { @class = "error" })
+
+                    <td>@Html.TextBoxFor(m => m.MastersY, new{@class="form-control"})</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-lg-2">
+            @Html.LabelFor(m => m.courses)
+        </div>
+        <div class="col-lg-8">
+            @Html.RadioButtonFor(m => m.courses,"BSCS") BSCS
+            @Html.RadioButtonFor(m => m.courses,"BBA") BBA
+            @Html.RadioButtonFor(m => m.courses,"BS(ME)") BS(ME)
+            @Html.RadioButtonFor(m => m.courses,"BS(EE)") BS(EE)
+        </div>
+    </div>
+    <br />
+        <div class="">
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+        </div>
+   
+
+
+}
